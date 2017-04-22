@@ -1,0 +1,12 @@
+﻿  Source.cpp
+c:\users\user\documents\visual studio 2015\projects\consoleapplication4\consoleapplication4\source.cpp(555): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+Source.obj : error LNK2019: unresolved external symbol "public: virtual __cdecl TiXmlNode::~TiXmlNode(void)" (??1TiXmlNode@@UEAA@XZ) referenced in function "public: virtual __cdecl TiXmlDocument::~TiXmlDocument(void)" (??1TiXmlDocument@@UEAA@XZ)
+Source.obj : error LNK2019: unresolved external symbol "public: __cdecl TiXmlDocument::TiXmlDocument(char const *)" (??0TiXmlDocument@@QEAA@PEBD@Z) referenced in function main
+Source.obj : error LNK2019: unresolved external symbol "public: bool __cdecl TiXmlDocument::LoadFile(enum TiXmlEncoding)" (?LoadFile@TiXmlDocument@@QEAA_NW4TiXmlEncoding@@@Z) referenced in function main
+Source.obj : error LNK2001: unresolved external symbol "public: virtual char const * __cdecl TiXmlDocument::Parse(char const *,class TiXmlParsingData *,enum TiXmlEncoding)" (?Parse@TiXmlDocument@@UEAAPEBDPEBDPEAVTiXmlParsingData@@W4TiXmlEncoding@@@Z)
+Source.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl TiXmlDocument::Print(struct _iobuf *,int)const " (?Print@TiXmlDocument@@UEBAXPEAU_iobuf@@H@Z)
+Source.obj : error LNK2001: unresolved external symbol "public: virtual bool __cdecl TiXmlDocument::Accept(class TiXmlVisitor *)const " (?Accept@TiXmlDocument@@UEBA_NPEAVTiXmlVisitor@@@Z)
+Source.obj : error LNK2001: unresolved external symbol "protected: virtual class TiXmlNode * __cdecl TiXmlDocument::Clone(void)const " (?Clone@TiXmlDocument@@MEBAPEAVTiXmlNode@@XZ)
+Source.obj : error LNK2001: unresolved external symbol "private: static struct TiXmlString::Rep TiXmlString::nullrep_" (?nullrep_@TiXmlString@@0URep@1@A)
+C:\Users\User\documents\visual studio 2015\Projects\ConsoleApplication4\x64\Debug\ConsoleApplication4.exe : fatal error LNK1120: 8 unresolved externals
