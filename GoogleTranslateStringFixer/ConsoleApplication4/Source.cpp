@@ -11,7 +11,7 @@
 #include <cwchar>
 
 using namespace std;
-
+//It is not my code -- start
 int Deconvert_single_unicode_symbols(string &p)
 {//deconvert unicode symbols like "\u0027"
 
@@ -246,7 +246,7 @@ void DeConvert_str(string &p)
 		{
 			if (p[f + 1] == 'a'&&p[f + 2] == 'm'&&p[f + 3] == 'p'&&p[f + 4] == ';')
 			{
-				szSTR3[len] = (char)'&';//&amp; («&»)
+				szSTR3[len] = (char)'&';//&amp; (Â«&Â»)
 				len++;
 				f += 4;
 				continue;
@@ -270,7 +270,7 @@ void DeConvert_str(string &p)
 			}
 			if (p[f + 1] == 'a'&&p[f + 2] == 'p'&&p[f + 3] == 'o'&&p[f + 4] == 's'&&p[f + 5] == ';')
 			{
-				szSTR3[len] = (char)0x27;//&apos; («'»),
+				szSTR3[len] = (char)0x27;//&apos; (Â«'Â»),
 				len++;
 				f += 5;
 				continue;
@@ -310,7 +310,7 @@ void DeConvert_str(string &p)
 				continue;
 			}
 
-			if (p[f + 1] == 'c'&&p[f + 2] == 'o'&&p[f + 3] == 'p'&&p[f + 4] == 'y'&&p[f + 5] == ';')//&copy; ©
+			if (p[f + 1] == 'c'&&p[f + 2] == 'o'&&p[f + 3] == 'p'&&p[f + 4] == 'y'&&p[f + 5] == ';')//&copy; Â©
 			{
 				szSTR3[len] = (char)0xC2;//&copy;
 				len++;
@@ -453,7 +453,7 @@ void DeConvert_strGoogle(string &p)
 						}//======================================
 						else
 							if (p[f + 0] == (char)'\\'&&p[f + 1] == (char)' '&&p[f + 2] == (char)0xd0 && p[f + 3] == (char)0x9f
-								&& p[f + 4] == (char)' '&&p[f + 5] == (char)'\\'&&p[f + 6] == (char)' '&&p[f + 7] == (char)'n')	//\ Ï \ n //rus
+								&& p[f + 4] == (char)' '&&p[f + 5] == (char)'\\'&&p[f + 6] == (char)' '&&p[f + 7] == (char)'n')	//\ Ã \ n //rus
 							{
 								szSTR3[len] = '\\';
 								szSTR3[len + 1] = 'n';
@@ -478,7 +478,7 @@ void DeConvert_strGoogle(string &p)
 									continue;
 								}
 								else
-									if (p[f + 0] == (char)'\\'&&p[f + 1] == (char)' '&&p[f + 2] == (char)0xd0 && p[f + 3] == (char)0x9f)	// \ Ï //rus
+									if (p[f + 0] == (char)'\\'&&p[f + 1] == (char)' '&&p[f + 2] == (char)0xd0 && p[f + 3] == (char)0x9f)	// \ Ã //rus
 									{
 										szSTR3[len] = '\\';
 										szSTR3[len + 1] = 'n';
@@ -552,7 +552,7 @@ void DeConvert_strGoogle(string &p)
 								continue;
 							}
 							else
-							if (p[f + 0] == (char)'%'&&p[f + 1] == (char)' '&&p[f + 2] == (char)0xd0 && (p[f + 3] == (char)0x93 || p[f + 3] == (char)0xB3))	// % Ã % ã//rus
+							if (p[f + 0] == (char)'%'&&p[f + 1] == (char)' '&&p[f + 2] == (char)0xd0 && (p[f + 3] == (char)0x93 || p[f + 3] == (char)0xB3))	// % Ãƒ % Ã£//rus
 							{
 								if (f>0) { szSTR3[len] = ' ';len++; }
 								szSTR3[len] = '%';len++;
@@ -614,7 +614,7 @@ void DeConvert_strGoogle(string &p)
 												else
 													if (p[f + 0] == (char)'%'&&p[f + 1] == (char)' ' && (p[f + 2] >= (char)'0'&&p[f + 2] <= (char)'9') && p[f + 3] == (char)' '
 														&&p[f + 4] == (char)'$'&&p[f + 5] == (char)' ' && (p[f + 6] == (char)'S' || p[f + 6] == (char)'s'))				// 	% 1 $ S
-													{//DNS1: 5% ñ $
+													{//DNS1: 5% Ã± $
 														if (f>0) { szSTR3[len] = ' ';len++; }
 														szSTR3[len] = '%';len++;
 														szSTR3[len] = p[f + 2];len++;
@@ -626,7 +626,7 @@ void DeConvert_strGoogle(string &p)
 													}
 													else
 														if (p[f + 0] == (char)'%'&&p[f + 1] == (char)' ' && (p[f + 2] >= (char)'0'&&p[f + 2] <= (char)'9') && p[f + 3] == (char)' '
-															&&p[f + 4] == (char)'$'&&p[f + 5] == (char)' '&& p[f + 6] == (char)0xD1 && p[f + 7] == (char)0x81)//DNS1: 5% ñ $				// 	% 1 $ S
+															&&p[f + 4] == (char)'$'&&p[f + 5] == (char)' '&& p[f + 6] == (char)0xD1 && p[f + 7] == (char)0x81)//DNS1: 5% Ã± $				// 	% 1 $ S
 														{
 															if (f>0) { szSTR3[len] = ' ';len++; }
 															szSTR3[len] = '%';len++;
@@ -686,7 +686,7 @@ void DeConvert_strGoogle(string &p)
 									else
 										if (p[f + 0] == (char)'<'&&p[f + 1] == (char)'//'&&p[f + 2] == (char)' '&&p[f + 3] == (char)'X'
 											&&p[f + 4] == (char)'L'&&p[f + 5] == (char)'I'&&p[f + 6] == (char)'F'&&p[f + 7] == (char)'F'
-											&&p[f + 8] == (char)':'&&p[f + 9] == (char)' '&&p[f + 12] == (char)'>')//</ XLIFF: ã> //rus
+											&&p[f + 8] == (char)':'&&p[f + 9] == (char)' '&&p[f + 12] == (char)'>')//</ XLIFF: Ã£> //rus
 										{
 											szSTR3[len] = (char)'<';
 											szSTR3[len + 1] = (char)'/';
@@ -983,7 +983,7 @@ void DeConvert_strGoogle(string &p)
 
 
 }
-
+//It is not my code -- end
 bool check(string& str)
 {
 	stringstream stream;
